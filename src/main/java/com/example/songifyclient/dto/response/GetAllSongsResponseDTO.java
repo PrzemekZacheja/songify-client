@@ -1,4 +1,4 @@
-package com.example.songifyclient.dto;
+package com.example.songifyclient.dto.response;
 
 import java.util.Map;
 

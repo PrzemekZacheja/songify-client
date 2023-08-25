@@ -1,7 +1,8 @@
 package com.example.songifyclient;
 
-import com.example.songifyclient.dto.SongRequestDto;
-import com.example.songifyclient.feign.SongFeignClient;
+import com.example.songifyclient.client.SongFeignClient;
+import com.example.songifyclient.dto.request.SongPostRequestDto;
+import com.example.songifyclient.dto.request.SongPutRequestDto;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -27,10 +28,10 @@ public class SongifyClientApplication {
     public void doSomethingAfterStartup() {
         try {
             log.info("Application started");
-            log.info(songFeignClient.createSong(new SongRequestDto("111", "2")));
+            log.info(songFeignClient.createSong(new SongPostRequestDto("111", "2")));
             log.info(songFeignClient.getSongs());
-            log.info(songFeignClient.updateSong(new SongRequestDto("[ut", "put"), 1));
-            log.info(songFeignClient.deleteSong(1));
+            log.info(songFeignClient.updateSong(new SongPutRequestDto("[ut", "put"), 1));
+            log.info(songFeignClient.deleteSong(4));
         } catch (FeignException e) {
             log.error(e.getMessage());
             log.error(e.getClass());
